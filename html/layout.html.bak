@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+	
+	<link rel="stylesheet" href="css/common.css">
+	<style>
+	.wrap {width:1200px;}
+		.swiper-slide {transform: scale(0.8);
+        transition: all .5s;}
+		.swiper-slide.swiper-slide-prev,
+		.swiper-slide.swiper-slide-next {transform: scale(0.9)}
+		.swiper-slide.swiper-slide-active {transform: scale(1)}
+	</style>
+ </head>
+ <body>
+<div class="wrap">
+<div class="swiper-container">
+	<ul class="swlist swiper-wrapper">
+		<li class="swiper-slide">1</li>
+		<li class="swiper-slide">2</li>
+		<li class="swiper-slide">3</li>
+		<li class="swiper-slide">4</li>
+		<li class="swiper-slide">5</li>
+	</ul>
+</div>
+<div class="nextr" style="height:50px; width:40px;">다음</div>
+<div class="grid_box">
+	<div class="grid">
+		<div class="grid-item"><img src="img/1.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/2.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/3.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/4.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/5.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/6.jpg" alt="" /></div>
+		<div class="grid-item"><img src="img/7.jpg" alt="" /></div>
+	</div>
+</div>
+</div>
+<script src="js/masonry-docs.min.js?2"></script>
+<script>
+var msnry = new Masonry( '.grid', {
+  columnWidth: 250,
+  itemSelector: '.grid-item'
+});
+
+$(document).ready(function(){
+var mySwiper = new Swiper ('.swiper-container', {
+	//freeMode: true,
+	//zoom : true,
+	slidesPerView : 5,
+	spaceBetween : 20,
+	centeredSlides:true,
+	loop:true,
+	on: {
+		click: function(e){
+			console.log(mySwiper.clickedIndex);
+		},
+		
+        setTransition: function (transition) {
+          for (var i = 0; i < this.slides.length; i++) {
+            var slide = this.slides.eq(i)
+            slide.transition(transition);
+          }
+
+        }
+	} 
+});
+$(".nextr").click(function(){
+	mySwiper.slideNext();
+});
+});
+
+</script>
+
+ </body>
+</html>
